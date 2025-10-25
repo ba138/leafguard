@@ -1,21 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:leafguard/const/colors.dart';
-import 'package:leafguard/views/auth_views/signup_screen.dart';
 import 'package:leafguard/views/widget/common_image_view.dart';
 import 'package:leafguard/views/widget/my_button.dart';
 import 'package:leafguard/views/widget/my_google_button.dart';
 import 'package:leafguard/views/widget/my_text.dart';
 import 'package:leafguard/views/widget/my_textfield.dart';
 
-class LoginScreen extends ConsumerStatefulWidget {
-  const LoginScreen({super.key});
+class SignupScreen extends StatelessWidget {
+  const SignupScreen({super.key});
 
-  @override
-  ConsumerState<ConsumerStatefulWidget> createState() => _LoginScreenState();
-}
-
-class _LoginScreenState extends ConsumerState<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,12 +17,12 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
           children: [
             CommonImageView(
               imagePath: 'images/logo.png',
-              height: 120,
-              width: 120,
+              height: 80,
+              width: 80,
             ),
             Expanded(child: SizedBox()),
             Container(
-              height: MediaQuery.of(context).size.height * 0.78,
+              height: MediaQuery.of(context).size.height * 0.83,
               width: double.infinity,
               decoration: BoxDecoration(
                 color: AppColors.secondary,
@@ -48,19 +41,19 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                         height: MediaQuery.of(context).size.height * 0.06,
                       ),
                       MyText(
-                        text: 'Welcome Back',
-                        size: 24,
+                        text: 'Welcome Onboard',
+                        size: 20,
                         weight: FontWeight.bold,
                         color: AppColors.primary,
                       ),
                       MyText(
-                        text: 'Please login to your account',
-                        size: 16,
+                        text: 'Please Create your account',
+                        size: 14,
                         color: AppColors.primary,
                       ),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.03,
-                      ),
+                      SizedBox(height: 8),
+                      MyTextField(label: 'Username', hint: 'Enter username'),
+
                       MyTextField(label: 'Email', hint: 'Enter your email'),
                       MyTextField(
                         label: 'Password',
@@ -78,9 +71,9 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                           color: AppColors.primary,
                         ),
                       ),
-                      const SizedBox(height: 40),
-                      MyButton(text: 'Login', onPressed: () {}),
-                      const SizedBox(height: 12),
+                      const SizedBox(height: 20),
+                      MyButton(text: 'Sign Up', onPressed: () {}),
+                      const SizedBox(height: 8),
 
                       MyGoogleButton(
                         title: 'Continue with Google',
@@ -115,20 +108,12 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           MyText(
-                            text: "Don't have an account?",
+                            text: "Already have an account?",
                             color: AppColors.primary,
                           ),
                           SizedBox(width: 4),
                           MyText(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => SignupScreen(),
-                                ),
-                              );
-                            },
-                            text: 'Sign Up',
+                            text: 'Sign In',
                             color: AppColors.primary,
                             weight: FontWeight.bold,
                           ),

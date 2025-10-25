@@ -5,10 +5,12 @@ import 'package:leafguard/views/widget/common_image_view.dart';
 class MyGoogleButton extends StatelessWidget {
   final String path;
   final VoidCallback onPressed;
+  final String title;
   const MyGoogleButton({
     super.key,
     required this.path,
     required this.onPressed,
+    required this.title,
   });
 
   @override
@@ -29,7 +31,7 @@ class MyGoogleButton extends StatelessWidget {
             CommonImageView(imagePath: path, height: 24, width: 24),
             const SizedBox(width: 12),
             Text(
-              'Sign in with Google',
+              title,
               style: TextStyle(
                 color: AppColors.primary,
                 fontSize: 18,
