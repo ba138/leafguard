@@ -8,11 +8,34 @@ final age = Provider((ref) {
   return 24;
 });
 
-class HomeScreen extends ConsumerWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+// class HomeScreen extends ConsumerWidget {
+//   const HomeScreen({Key? key}) : super(key: key);
+
+//   @override
+//   Widget build(BuildContext context, WidgetRef ref) {
+//     final screenTitle = ref.watch(title);
+//     final userAge = ref.watch(age);
+//     return Scaffold(
+//       appBar: AppBar(title: const Text('Home Screen')),
+//       body: Column(
+//         children: [
+//           Center(child: Text(screenTitle)),
+//           Center(child: Text("Age: $userAge")),
+//         ],
+//       ),
+//     );
+//   }
+// }
+class HomeScreen extends ConsumerStatefulWidget {
+  const HomeScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<ConsumerStatefulWidget> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends ConsumerState<HomeScreen> {
+  @override
+  Widget build(BuildContext context) {
     final screenTitle = ref.watch(title);
     final userAge = ref.watch(age);
     return Scaffold(
