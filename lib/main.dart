@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:leafguard/const/colors.dart';
+import 'package:leafguard/const/views/wellcome%20Screens/splash_screen.dart';
 import 'package:leafguard/home_screen.dart';
 
 void main() {
@@ -17,8 +19,9 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          scaffoldBackgroundColor: AppColors.primary,
         ),
-        home: const HomeScreen(),
+        home: const SplashScreen(),
       ),
     );
   }
