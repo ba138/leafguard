@@ -1,7 +1,20 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  Person person = Person(name: "Basit Ali", age: 25);
+  print(person.name);
+  person = person.copyWith(name: "ali", age: 30);
+  print(person.name);
+}
+
+class Person {
+  final String name;
+  final int age;
+
+  Person({required this.name, required this.age});
+  Person copyWith({String? name, int? age}) {
+    return Person(name: name ?? this.name, age: age ?? this.age);
+  }
 }
 
 class MyApp extends StatelessWidget {
