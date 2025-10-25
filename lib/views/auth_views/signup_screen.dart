@@ -64,6 +64,15 @@ class SignupScreen extends StatelessWidget {
                           child: Icon(Icons.visibility_off),
                         ),
                       ),
+                      MyTextField(
+                        label: 'Confirm Password',
+                        hint: 'Re-enter your password',
+                        isObSecure: true,
+                        suffix: InkWell(
+                          onTap: () {},
+                          child: Icon(Icons.visibility_off),
+                        ),
+                      ),
                       Align(
                         alignment: Alignment.centerRight,
                         child: MyText(
@@ -113,6 +122,7 @@ class SignupScreen extends StatelessWidget {
                           ),
                           SizedBox(width: 4),
                           MyText(
+                            onTap: () => Navigator.pop(context),
                             text: 'Sign In',
                             color: AppColors.primary,
                             weight: FontWeight.bold,
