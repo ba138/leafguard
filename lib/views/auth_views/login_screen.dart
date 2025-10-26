@@ -19,28 +19,29 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset:
+          true, // ✅ Allows screen to move up when keyboard appears
       body: SafeArea(
-        child: Column(
-          children: [
-            CommonImageView(
-              imagePath: 'images/logo.png',
-              height: 120,
-              width: 120,
-            ),
-            Expanded(child: SizedBox()),
-            Container(
-              height: MediaQuery.of(context).size.height * 0.78,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: AppColors.secondary,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(60),
-                  // topRight: Radius.circular(30),
-                ),
+        child: SingleChildScrollView(
+          // ✅ Make entire screen scrollable
+          child: Column(
+            children: [
+              CommonImageView(
+                imagePath: 'images/logo.png',
+                height: 120,
+                width: 120,
               ),
-              child: Padding(
-                padding: const EdgeInsets.only(left: 16.0, right: 16.0),
-                child: SingleChildScrollView(
+              SizedBox(height: 20),
+              Container(
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: AppColors.secondary,
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(60),
+                  ),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -58,9 +59,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                         size: 16,
                         color: AppColors.primary,
                       ),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.03,
-                      ),
+                      SizedBox(height: 24),
                       MyTextField(label: 'Email', hint: 'Enter your email'),
                       MyTextField(
                         label: 'Password',
@@ -81,7 +80,6 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                       const SizedBox(height: 40),
                       MyButton(text: 'Login', onPressed: () {}),
                       const SizedBox(height: 12),
-
                       MyGoogleButton(
                         title: 'Continue with Google',
                         path: 'images/google.png',
@@ -90,24 +88,14 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                       const SizedBox(height: 8),
                       Row(
                         children: [
-                          Expanded(
-                            child: Divider(
-                              color: AppColors.primary,
-                              thickness: 1,
-                            ),
-                          ),
+                          Expanded(child: Divider(color: AppColors.primary)),
                           Padding(
                             padding: const EdgeInsets.symmetric(
                               horizontal: 8.0,
                             ),
                             child: MyText(text: 'OR', color: AppColors.primary),
                           ),
-                          Expanded(
-                            child: Divider(
-                              color: AppColors.primary,
-                              thickness: 1,
-                            ),
-                          ),
+                          Expanded(child: Divider(color: AppColors.primary)),
                         ],
                       ),
                       const SizedBox(height: 8),
@@ -118,13 +106,13 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                             text: "Don't have an account?",
                             color: AppColors.primary,
                           ),
-                          SizedBox(width: 4),
+                          const SizedBox(width: 4),
                           MyText(
                             onTap: () {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => SignupScreen(),
+                                  builder: (context) => const SignupScreen(),
                                 ),
                               );
                             },
@@ -134,12 +122,13 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                           ),
                         ],
                       ),
+                      const SizedBox(height: 20),
                     ],
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
