@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:leafguard/const/colors.dart';
+import 'package:leafguard/views/auth_views/forget_password_screen.dart';
 import 'package:leafguard/views/auth_views/signup_screen.dart';
 import 'package:leafguard/views/widget/common_image_view.dart';
 import 'package:leafguard/views/widget/my_button.dart';
@@ -102,6 +103,15 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                                     Align(
                                       alignment: Alignment.centerRight,
                                       child: MyText(
+                                        onTap: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  ForgetPasswordScreen(),
+                                            ),
+                                          );
+                                        },
                                         text: 'Forgot Password?',
                                         color: AppColors.primary,
                                       ),
