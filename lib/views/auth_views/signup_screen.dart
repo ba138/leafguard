@@ -20,8 +20,8 @@ class SignupScreen extends StatelessWidget {
             SizedBox(height: 20),
             CommonImageView(
               imagePath: 'images/logo.png',
-              height: 80,
-              width: 80,
+              height: 120,
+              width: 120,
             ),
             Expanded(
               child: ClipRRect(
