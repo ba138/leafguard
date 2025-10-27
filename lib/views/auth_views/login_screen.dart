@@ -19,11 +19,9 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset:
-          true, // ✅ Allows screen to move up when keyboard appears
+      resizeToAvoidBottomInset: true,
       body: SafeArea(
         child: SingleChildScrollView(
-          // ✅ Make entire screen scrollable
           child: Column(
             children: [
               CommonImageView(
